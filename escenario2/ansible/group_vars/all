@@ -5,5 +5,9 @@
 #   documentroot: directorio con el contenido
 virtualhosts:
   - nombre: vhost1
-    servername: interno.ejemplo.org
-    documentroot: /var/www/ejemplo
+    servername: interno.example1.org
+    documentroot: /var/www/example1
+    
+  - nombre: vhost2
+    servername: interno.example2.org
+    documentroot: /var/www/example2
