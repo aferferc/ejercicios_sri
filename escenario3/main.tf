@@ -27,7 +27,7 @@ resource "libvirt_domain" "e3-balanceador" {
 
   # Pide las IP al agente de QEMU (qemu-guest-agent): así se conocen también las estáticas
   qemu_agent = true
-
+  
   # Red 1: externa NAT sin DHCP (IP estática 192.168.10.10, gateway 192.168.10.1)
   network_interface {
     network_id = libvirt_network.e3-red-externa.id
