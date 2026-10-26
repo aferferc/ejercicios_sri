@@ -25,9 +25,6 @@ resource "libvirt_domain" "e1-servidorweb" {
   memory = 1024
   vcpu   = 1
 
-  # Pide las IP al agente de QEMU (qemu-guest-agent): así se conocen también las estáticas
-  qemu_agent = true
-
   # Red 1: NAT con DHCP (acceso exterior)
   network_interface {
     network_id     = libvirt_network.e1-nat-dhcp.id
@@ -78,9 +75,6 @@ resource "libvirt_domain" "e1-cliente" {
   name   = "e1-cliente"
   memory = 1024
   vcpu   = 1
-
-  # Pide las IP al agente de QEMU (qemu-guest-agent): así se conocen también las estáticas
-  qemu_agent = true
 
   # Red 1: NAT con DHCP (acceso exterior)
   network_interface {

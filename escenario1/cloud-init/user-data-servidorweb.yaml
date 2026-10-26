@@ -2,12 +2,6 @@
 hostname: servidorweb
 
 timezone: Europe/Madrid
-locale: es_ES.UTF-8
-
-# keyboard solo tiene efecto en Debian
-keyboard:
-  layout: es
-
 users:
   - name: debian
     sudo: ALL=(ALL) NOPASSWD:ALL
@@ -22,9 +16,6 @@ chpasswd:
     - name: debian
       password: asdasd
       type: text
-
-packages:
-  - qemu-guest-agent # necesario para que el hipervisor obtenga la IP de la VM
 
 package_update: true  # refresca índices de apt
 package_upgrade: true # aplica actualizaciones disponibles en el primer arranque

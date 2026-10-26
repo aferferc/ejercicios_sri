@@ -7,9 +7,9 @@ Los escenarios se crean con **OpenTofu + libvirt** y, cuando hace falta, se conf
 ## Antes de empezar
 
 * Las imágenes base `debian13-base.qcow2` tienen que estar en el pool `default` (`/var/lib/libvirt/images`), redimensionadas y con el pool refrescado (`sudo virsh pool-refresh default`), como se explica en la tarea 4 de PI.
-* En los ficheros `cloud-init/user-data-*.yaml` hay que **sustituir la línea de ejemplo** de `ssh-authorized-keys` por tu clave pública.
+* En los ficheros `cloud-init/user-data-*.yaml` hay que **sustituir la línea de ejemplo** de `ssh_authorized_keys` por tu clave pública.
 * El provider está fijado a `dmacvicar/libvirt` 0.8.3: no cambies la versión (desde la 0.9 el provider usa otra sintaxis).
-* Los dominios usan `qemu_agent = true`: OpenTofu obtiene las IP (también las estáticas) del agente `qemu-guest-agent`, que instala cloud-init.
+* OpenTofu solo conoce las IP que reparte el DHCP de libvirt: las IP estáticas están en los ficheros `cloud-init/network-config-*.yaml` y las salidas (`tofu output`) las muestran tal cual.
 * Destruye cada escenario (`tofu destroy`) antes de crear otro.
 
 ## Cómo se usa un escenario
